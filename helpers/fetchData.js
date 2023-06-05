@@ -10,6 +10,8 @@ const urlBaseIMDB = 'https://imdb-api.com/API';
 const urlAPIFavorites = 'api/favorites'
 const urlDashboardUser = 'dashboard-usuario';
 
+const fetch = require('node-fetch');
+
 const fetchData = async (tipo, data) => {
     const body = data.body;
     const bodyJSON = JSON.stringify(data.body);
@@ -97,7 +99,7 @@ const fetchData = async (tipo, data) => {
 
     //Fetch
     try {
-        console.log('url',url)
+        console.log('url', url)
         const request = await fetch(url, options);
         const response = await request.json();
         if (!response) return {
