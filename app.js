@@ -38,8 +38,18 @@ app.use('/dashboard-usuario', require('./routers/routerFrontUser')); // ruta usu
 app.use('/dashboard-admin', require('./routers/routerFrontAdmin')); // ruta admin para crear, editar y eliminar películas
 
 
+//Awake
+app.use('/wakeup', (req, res) => {
+
+    res.status(200).json({
+        ok: true,
+        msg: `I'm awake (Movies - Front)`
+    });
+
+});
+
 //404
-app.use((req, res, next) => {
+app.use((req, res) => {
 
     res.status(404).render('404', {
         error: '404',
